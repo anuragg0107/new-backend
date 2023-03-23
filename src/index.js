@@ -10,6 +10,7 @@ const app = express()
 const userRouter= require("./routes/user.route")
 const productRouter = require("./routes/products.route")
 const cartRouter = require("./routes/cart.route")
+const {userRouters}  = require('./routes/UserRoute')
 
 
 app.use(express.json())
@@ -22,6 +23,7 @@ app.use(cookieParser())
 app.use(banAuth)
 
 
+app.use("/register",userRouters)
 
 app.use("/users", userRouter)
 app.use("/products", productRouter)
